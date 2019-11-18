@@ -15,58 +15,30 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
-<div class="banner">
-	<div class="container">
-		<div class="banner_desc">
-		</div>
-	</div>
-</div>
 <div style="background-color: #088A4B;height:35px;color:#fff; font-size:18px; padding:5px; text-align:center;">
-	<span>Sản phẩm bán chạy</span>
+	<span>Danh sách sản phẩm</span>
 </div>	
 <div class="container">
 	<div class="content">
 		<ul class="products">
 		<%
-				List<SanPham> listSanPhamBanChay = (List<SanPham>) request.getAttribute("ListSanPhamBanChay");
-				for(SanPham sp : listSanPhamBanChay){
+				List<SanPham> listSanPham = (List<SanPham>) request.getAttribute("ListSanPham");
+				for(SanPham sp : listSanPham){
 		%>
 			<li> 
-			<a href="#"><img src="resources/images/<%=sp.getHinhAnh() %>" alt="" width="252px" height="190px">
-					<h3><%= sp.getTenSanPham() %></h3>
-					<c:set var="dongia" value="<%=sp.getDonGia() %>"/>
-					<h4>
-						Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${dongia}"/> VNĐ
-					</h4>		
-			</a>
-				<span><input type="submit" name="submit" value="Thêm vào giỏ" class="btn"></span>
-			</li>
-			<%} %>	
-		</ul>
-	</div>
-</div>
-<div style="background-color: #088A4B;height:35px;color:#fff; font-size:18px; padding:5px; text-align:center;">
-	<span>Sản phẩm mới</span>
-</div>	
-<div class="container">
-	<div class="content">
-		<ul class="products">
-			<%
-				List<SanPham> listSanPhamMoi = (List<SanPham>) request.getAttribute("ListSanPhamMoi");
-				for(SanPham sp : listSanPhamMoi){
-			%>
-			<li> 
-			<a href="#"><img src="resources/images/<%=sp.getHinhAnh() %>" alt="" width="252px" height="190px">
+			<a href="#"><img src="resources/images/<%= sp.getHinhAnh() %>" alt="" width="252px" height="190px">
 					<h3><%= sp.getTenSanPham() %></h3>
 					<c:set var="dongia" value="<%=sp.getDonGia() %>"/>
 					<h4>
 						Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${dongia}"/> VNĐ
 					</h4>	
+				
 			</a>
 				<span><input type="submit" name="submit" value="Thêm vào giỏ" class="btn"></span>
 			</li>
 			<%} %>	
 		</ul>
+		
 	</div>
 </div>
 <%@ include file="footer.jsp" %>
