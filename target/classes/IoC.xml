@@ -18,10 +18,18 @@
 		<property name="dataSource" ref="dbGreenProduct" />
 	</bean>
 	
+	<bean name="databasehoadon" class="com.ptpmcn.dao.HoaDonDAO">
+		<property name="dataSource" ref="dbGreenProduct" />
+	</bean>
+	
+	<bean name="databasechitiethoadon" class="com.ptpmcn.dao.ChiTietHoaDonDAO">
+		<property name="dataSource" ref="dbGreenProduct" />
+	</bean>
+	
 	<bean name="dbGreenProduct" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 	    <property name="url" value="jdbc:mysql://localhost:3306/greenproduct" />
 	    <property name="username" value="root" />
-	    <property name="password" value="kimhanbin29" />
+	    <property name="password" value="12345678" />
 	</bean>	
 </beans>

@@ -26,7 +26,7 @@
 				for(SanPham sp : listSanPham){
 		%>
 			<li> 
-			<a href="#"><img src="resources/images/<%= sp.getHinhAnh() %>" alt="" width="252px" height="190px">
+			<a class="cart" href="#"><img src="resources/images/<%= sp.getHinhAnh() %>" alt="" width="252px" height="190px">
 					<h3><%= sp.getTenSanPham() %></h3>
 					<c:set var="dongia" value="<%=sp.getDonGia() %>"/>
 					<h4>

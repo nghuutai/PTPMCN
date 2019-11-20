@@ -32,14 +32,18 @@
 				for(SanPham sp : listSanPhamBanChay){
 		%>
 			<li> 
-			<a href="#"><img src="resources/images/<%=sp.getHinhAnh() %>" alt="" width="252px" height="190px">
+			<a class="cart" href="#"><img src="resources/images/<%=sp.getHinhAnh() %>" alt="" width="252px" height="190px">
 					<h3><%= sp.getTenSanPham() %></h3>
 					<c:set var="dongia" value="<%=sp.getDonGia() %>"/>
 					<h4>
 						Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${dongia}"/> VNĐ
 					</h4>		
 			</a>
-				<span><input type="submit" name="submit" value="Thêm vào giỏ" class="btn"></span>
+			<div class="clearfix"></div>
+				<%-- <span><a href="/GreenProduct/themvaogio?masp=<%=sp.getMaSanPham() %>"><input type="button" name="submit" value="Thêm vào giỏ" class="btn"></a></span> --%>
+			
+					<a href="/GreenProduct/themvaogio?masp=<%=sp.getMaSanPham() %>"><button class="btn">Thêm vào giỏ</button></a>
+				
 			</li>
 			<%} %>	
 		</ul>
@@ -56,14 +60,15 @@
 				for(SanPham sp : listSanPhamMoi){
 			%>
 			<li> 
-			<a href="#"><img src="resources/images/<%=sp.getHinhAnh() %>" alt="" width="252px" height="190px">
+			<a class="cart" href="#"><img src="resources/images/<%=sp.getHinhAnh() %>" alt="" width="252px" height="190px">
 					<h3><%= sp.getTenSanPham() %></h3>
 					<c:set var="dongia" value="<%=sp.getDonGia() %>"/>
 					<h4>
 						Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${dongia}"/> VNĐ
 					</h4>	
 			</a>
-				<span><input type="submit" name="submit" value="Thêm vào giỏ" class="btn"></span>
+			<div class="clearfix"></div>
+				<a href="/GreenProduct/themvaogio?masp=<%=sp.getMaSanPham() %>"><button class="btn">Thêm vào giỏ</button></a>
 			</li>
 			<%} %>	
 		</ul>
