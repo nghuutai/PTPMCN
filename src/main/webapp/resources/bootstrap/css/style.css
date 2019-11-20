@@ -301,7 +301,7 @@ ul.footer_social li a i:hover{
 	margin: 0
 }
 
-.products li a {
+.products li .cart {
 	display: table-cell;
 	width: 283px;
 	height: 250px;

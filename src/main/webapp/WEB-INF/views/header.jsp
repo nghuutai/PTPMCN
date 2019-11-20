@@ -23,11 +23,11 @@
 <div class="container">
 			<div class="col-xs-8 header-top-left">
 				<div class="col-xs-4 logo">
-				<h1><a href="."><span>Green</span>Product</a></h1>
+				<h1><a href="/GreenProduct"><span>Green</span>Product</a></h1>
 				</div>
 				<div class="col-xs-4 menu">
 		            <ul class="megamenu skyblue">
-					<li><a class="color4" href=".">Trang chủ</a></li>				
+					<li><a class="color4" href="/GreenProduct">Trang chủ</a></li>				
 					<li><a class="color5" href="#">Giới thiệu</a></li>
 				    <li class="grid"><a class="color2" href="dssanpham?madm=0">Sản phẩm</a>
 					  <div class="megapanel">
@@ -59,9 +59,14 @@
 			</div>
 	    <div class="col-xs-4 header-top-right">
 	       <div class="box_11-cart">
-		     <div class="box_11"><a href="#">
-		      <h4><p>Giỏ hàng</p><img src="<c:url value="/resources/images/cart.png" />" alt=""><div class="clearfix"> </div></h4>
-		      </a></div>
+		     <div class="box_11">
+		     	<c:if test="${sessionScope.TongSoLuongGioHang==0}">
+		     		<a href="#"><h4><p>Giỏ hàng</p><img src="<c:url value="/resources/images/cart.png" />" alt=""><div class="clearfix"> </div></h4></a>
+		     	</c:if>
+		     	<c:if test="${sessionScope.TongSoLuongGioHang>0}">
+		     	<a href="/GreenProduct/giohang"><h4><p>Giỏ hàng (${sessionScope.TongSoLuongGioHang})</p><img src="<c:url value="/resources/images/cart.png" />" alt=""><div class="clearfix"> </div></h4></a>
+		     	</c:if>
+		     </div>
 	         
 	        </div>
 	        <div class="search">	  

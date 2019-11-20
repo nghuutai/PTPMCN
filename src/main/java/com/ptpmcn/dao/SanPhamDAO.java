@@ -102,4 +102,34 @@ public class SanPhamDAO {
 		return listSanPhamTheoDanhMuc;
 	}
 	
+	public SanPham getSanPhamById(int id) {
+		String sql = "SELECT * FROM GreenProduct.SanPham where MaSanPham=?;";
+		SanPham sp = jdbcTemplate.queryForObject(sql, new RowMapper<SanPham>() {
+			public SanPham mapRow(ResultSet rs, int rowNum) throws SQLException {
+				SanPham sanPham = new SanPham();
+				sanPham.setMaSanPham(rs.getInt("MaSanPham"));
+				sanPham.setMaDM(rs.getString("MaDanhMuc"));
+				sanPham.setTenSanPham(rs.getString("TenSanPham"));
+				sanPham.setDonGia(rs.getInt("DonGia"));
+				sanPham.setSoLuong(rs.getInt("SoLuong"));
+				sanPham.setHinhAnh(rs.getString("HinhAnh"));
+				sanPham.setMoTa(rs.getString("MoTa"));
+				sanPham.setDonViTinh(rs.getString("DonViTinh"));
+				return sanPham;
+            }
+		}, id);
+		return sp;
+	}
+	
+	public int getSoLuong(int id) {
+		String sql = "SELECT SoLuong FROM GreenProduct.SanPham where MaSanPham=?;";
+		int result =jdbcTemplate.queryForObject(sql, new Object[]{id}, Integer.class);
+		return result;
+	}
+	
+	public int suaSoLuong(int sl, int id) {
+		String sql = "UPDATE `GreenProduct`.`SanPham` SET `SoLuong` = `SoLuong` - ? WHERE (`MaSanPham` = ?);";
+		int result = jdbcTemplate.update(sql, sl, id);
+		return result;
+	}
 }
