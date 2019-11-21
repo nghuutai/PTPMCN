@@ -383,11 +383,44 @@ html,body,p,a,font,ol,ul,li,form,label,th,td {
   font-size:15px
 
 }
-
 .btn:hover {
   background-color: #008040;
   color: #fff;
 
 }
+
+.form-cart input[type="text"] {
+  height: 34px;
+  padding: 6px 6px;
+  font-size: 15px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align:center;
+
+}
+
+.form-cart button{
+	width:34px;
+	height:34px;
+	margin:0px;
+  background-color: midnightblue;
+  color: white;
+  font-size:17px;
+  font-weight:bold;
+	
+}
+.form-cart button:hover{
+	background-color: #008040;
+  color: #fff;
+	
+}
+
+
+
+
 
 
