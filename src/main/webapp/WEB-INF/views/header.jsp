@@ -29,7 +29,7 @@
 		            <ul class="megamenu skyblue">
 					<li><a class="color4" href="/GreenProduct">Trang chủ</a></li>				
 					<li><a class="color5" href="#">Giới thiệu</a></li>
-				    <li class="grid"><a class="color2" href="dssanpham?madm=0">Sản phẩm</a>
+				    <li class="grid"><a class="color2" href="/GreenProduct/dssanpham?madm=0">Sản phẩm</a>
 					  <div class="megapanel">
 						<div class="row">
 							<div class="col1">
