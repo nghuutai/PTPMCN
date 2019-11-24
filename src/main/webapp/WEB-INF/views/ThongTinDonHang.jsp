@@ -7,20 +7,20 @@
 <head>
 <title>Green Product</title>
 <meta charset="UTF-8"/>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="<c:url value="/resources/css/bootstrap.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet">
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-	<div class="container">
-		<div style="margin:20px;">
-		<h2>THÔNG TIN ĐƠN HÀNG</h2>
-	</div>
+<div style="background-color: #088A4B;height:35px;color:#fff; font-size:18px; padding:5px; text-align:center;margin-bottom:20px">
+		<span>Thông tin đơn hàng</span>
+</div>
+<div class="container">
 	<div class="row" style="margin-left:20px;margin-right:20px;">
-		<div class="col-6">
+		<div class="col-xs-6">
 			<div class="row">
 				<div class="col-6">
-					<h3>Địa chỉ giao hàng</h3>
+					<span style="font-size:20px; color:red; font-weight:bold;margin-bottom:50px;">Địa chỉ giao hàng</span>
 				</div>
 			</div>
 			<div class="dropdown-divider"></div>
@@ -29,10 +29,10 @@
 			<div style="margin-bottom:20px;">Số điện thoại: ${sessionScope.hoaDon.soDienThoai}</div>
 			<div style="margin-bottom:20px;">Địa chỉ: ${sessionScope.hoaDon.diaChi}</div>
 		</div>
-		<div class="col-6">
+		<div class="col-xs-6">
 			<div class="row">
 				<div class="col-6">
-					<h3>Đơn hàng</h3>
+					<span style="font-size:20px; color:red; font-weight:bold; margin-bottom:40px;">Đơn hàng</span>
 				</div>
 			</div>
 			<div class="dropdown-divider"></div>
@@ -49,11 +49,11 @@
 			  		<tr>
 				  		<td>${item.value.sanPham.tenSanPham}</td>
 				  		<td>${item.value.soLuong}</td>
-				  		<td>${item.value.tongTien()}đ</td>
+				  		<td><fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${item.value.tongTien()}"/>VNĐ</td>
 			  		</tr>
 			  	</c:forEach>
 			  	<tr>
-			  		<td colspan="3" style="text-align:right;">Tổng tiền: ${sessionScope.TongGiaTriDonHang}đ</td>
+			  		<td colspan="3" style="text-align:right; padding-right:50px;">Tổng tiền:  <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${sessionScope.TongGiaTriDonHang}"/>VNĐ</td>
 			  	</tr>
 			  </tbody>
 			</table>
@@ -61,7 +61,7 @@
 	</div>
 	<div class="row">
 		<div class="col-12" style="text-align:center;margin-top:20px;">
-			<a href="/GreenProduct/dathang"><button type="submit" class="btn btn-danger">Đặt mua</button></a>
+			<a href="/GreenProduct/dathang"><button type="submit" class="btn">Xác nhận mua hàng</button></a>
 		</div>
 	</div>
 	</div>

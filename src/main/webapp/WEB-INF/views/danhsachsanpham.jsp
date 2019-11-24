@@ -34,7 +34,8 @@
 					</h4>	
 				
 			</a>
-				<span><input type="submit" name="submit" value="Thêm vào giỏ" class="btn"></span>
+			<div class="clearfix"></div>
+				<a href="#"><button class="btn">Thêm vào giỏ</button></a>
 			</li>
 			<%} %>	
 		</ul>

@@ -7,17 +7,16 @@
 <head>
 <title>Green Product</title>
 <meta charset="UTF-8"/>
+<link href="<c:url value="/resources/css/bootstrap.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+<%@ include file="header.jsp" %>
+<div style="background-color: #088A4B;height:35px;color:#fff; font-size:18px; padding:5px; text-align:center;margin-bottom:20px">
+		<span>Thông tin khách hàng</span>
+</div>
 		<div class="container">
-			<div class="row">
-				<div class="col-12" style="margin:20px;">
-					<h3>Thông tin khách </h3>
-				</div>
-			</div>
 			<form style="margin-bottom-:20px;margin-left:20px;margin-right:20px;" action="/GreenProduct/thongtin" method="post">
 			  <div class="form-group">
 			    <label for="exampleFormControlInput1">Tên khách hàng</label>

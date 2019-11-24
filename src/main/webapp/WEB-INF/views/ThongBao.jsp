@@ -8,15 +8,14 @@
 <title>Green Product</title>
 <meta charset="UTF-8"/>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="<c:url value="/resources/css/bootstrap.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet">
 </head>
 <body>
 	<%@ include file="header.jsp" %>
 	<div class="container">
-		<h2 style="margin:20px;">Bạn đã đặt hàng thành </h2>
-		<div class="col-12">
+		<h3 style="margin:40px 0px;">Bạn đã đặt hàng thành công</h3>
 			<a href="/GreenProduct">Tiếp tục mua hàng</a>
-		</div>
 	</div>
 	<%@ include file="footer.jsp" %>
 </body>
