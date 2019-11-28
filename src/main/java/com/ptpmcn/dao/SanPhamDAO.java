@@ -82,7 +82,7 @@ public class SanPhamDAO {
 		return listSanPhamBanChay;
 	}
 	public List<SanPham> getListSanPhamTheoDanhMuc(String maDanhMuc) {
-		String sql = "SELECT sanpham.MaDanhMuc,MaSanPham,TenSanPham,DonGia,SoLuong,HinhAnh,MoTa,HinhAnh,DonViTinh FROM danhmucsp, sanpham  where sanpham.MaDanhMuc = danhmucsp.MaDanhMuc and sanpham.MaDanhMuc = '" + maDanhMuc + "';";
+		String sql = "SELECT * FROM  sanpham  where MaDanhMuc =?";
 		List<SanPham> listSanPhamTheoDanhMuc = jdbcTemplate.query(sql, new RowMapper<SanPham>() {
 
 			public SanPham mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -98,7 +98,7 @@ public class SanPhamDAO {
 				
 				return sp;
 			}
-		});
+		},maDanhMuc);
 		return listSanPhamTheoDanhMuc;
 	}
 	
