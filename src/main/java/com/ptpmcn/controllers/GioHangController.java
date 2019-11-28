@@ -15,6 +15,8 @@ import com.ptpmcn.dao.SanPhamDAO;
 import com.ptpmcn.entity.GioHang;
 import com.ptpmcn.entity.SanPham;
 
+import service.GioHangService;
+
 
 
 
@@ -32,28 +34,12 @@ public class GioHangController {
 	
 	@RequestMapping("/giohang/them/{id}")
 	public String themGioHang(HttpSession session, @PathVariable int id, ModelMap modelMap) {
-		System.out.println(1);
 		HashMap<Integer, GioHang> gioHang = (HashMap<Integer, GioHang>) session.getAttribute("GioHang");
-		
-
         SanPham sp = db.getSanPhamById(id);
         int soLuongCon = db.getSoLuong(id);
-        if (sp != null) {
-            GioHang cart = gioHang.get(id);
-            cart.setSanPham(sp);
-            cart.setSoLuong(cart.getSoLuong() + 1);
-            cart.setSoLuongCon(soLuongCon);
-            gioHang.put(id, cart);
-        }
-        int total = 0;
-		int totalSL = 0;
-		for(GioHang cart:gioHang.values()) {
-			int dg = cart.getSanPham().getDonGia();
-			int sl = cart.getSoLuong();
-			int tt = dg * sl;
-			total = total + tt;
-			totalSL = totalSL + sl;
-		}
+        gioHang = GioHangService.tangGioHang(gioHang, sp, id, 1,soLuongCon);
+        int total = GioHangService.tongGiaTriGioHang(gioHang);
+		int totalSL = GioHangService.tongSoLuongGioHang(gioHang);
 		session.setAttribute("TongGiaTriDonHang", total);
 		session.setAttribute("GioHang", gioHang);
 		session.setAttribute("TongSoLuongGioHang", totalSL);
@@ -63,24 +49,11 @@ public class GioHangController {
 	@RequestMapping("/giohang/giam/{id}")
 	public String giamSoLuong(HttpSession session, @PathVariable int id, ModelMap modelMap) {
 		HashMap<Integer, GioHang> gioHang = (HashMap<Integer, GioHang>) session.getAttribute("GioHang");
-		
-		
         SanPham sp = db.getSanPhamById(id);
-        if (sp != null) {
-        	GioHang cart = gioHang.get(id);
-            cart.setSanPham(sp);
-            cart.setSoLuong(cart.getSoLuong() - 1);
-            gioHang.put(id, cart);
-        }
-        int total = 0;
-		int totalSL = 0;
-		for(GioHang cart:gioHang.values()) {
-			int dg = cart.getSanPham().getDonGia();
-			int sl = cart.getSoLuong();
-			int tt = dg * sl;
-			total = total + tt;
-			totalSL = totalSL + sl;
-		}
+        int soLuongCon = db.getSoLuong(id);
+        gioHang = GioHangService.giamGioHang(gioHang, sp, id, 1, soLuongCon);
+        int total = GioHangService.tongGiaTriGioHang(gioHang);
+		int totalSL = GioHangService.tongSoLuongGioHang(gioHang);
 		session.setAttribute("TongGiaTriDonHang", total);
 		session.setAttribute("GioHang", gioHang);
 		session.setAttribute("TongSoLuongGioHang", totalSL);
@@ -91,21 +64,9 @@ public class GioHangController {
 	@RequestMapping("/giohang/xoa/{id}")
 	public String xoaSanPham(HttpSession session, @PathVariable int id, ModelMap modelMap){
 		HashMap<Integer, GioHang> gioHang = (HashMap<Integer, GioHang>) session.getAttribute("GioHang");
-        if (gioHang == null) {
-        	gioHang = new HashMap<Integer,GioHang>();
-        }
-        if (gioHang.containsKey(id)) {
-        	gioHang.remove(id);
-        }
-        int total = 0;
-		int totalSL = 0;
-		for(GioHang cart:gioHang.values()) {
-			int dg = cart.getSanPham().getDonGia();
-			int sl = cart.getSoLuong();
-			int tt = dg * sl;
-			total = total + tt;
-			totalSL = totalSL + sl;
-		}
+        gioHang = GioHangService.xoaGioHang(gioHang, id);
+        int total = GioHangService.tongGiaTriGioHang(gioHang);
+		int totalSL = GioHangService.tongSoLuongGioHang(gioHang);
 		session.setAttribute("TongGiaTriDonHang", total);
 		session.setAttribute("GioHang", gioHang);
 		session.setAttribute("TongSoLuongGioHang", totalSL);

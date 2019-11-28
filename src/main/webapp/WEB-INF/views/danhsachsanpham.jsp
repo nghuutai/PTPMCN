@@ -23,19 +23,21 @@
 		<ul class="products">
 		<%
 				List<SanPham> listSanPham = (List<SanPham>) request.getAttribute("ListSanPham");
+				String ma = (String) request.getAttribute("madm");
 				for(SanPham sp : listSanPham){
 		%>
 			<li> 
-			<a class="cart" href="#"><img src="resources/images/<%= sp.getHinhAnh() %>" alt="" width="252px" height="190px">
+			<c:set var="hinhanh" value="<%=sp.getHinhAnh() %>"/>
+			<a class="cart" href="#"><img src="<c:url value='resources/images/${hinhanh}' />" alt="" width="252px" height="190px">
 					<h3><%= sp.getTenSanPham() %></h3>
 					<c:set var="dongia" value="<%=sp.getDonGia() %>"/>
 					<h4>
-						Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${dongia}"/> VNĐ
+						Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${dongia}"/> đ
 					</h4>	
 				
 			</a>
 			<div class="clearfix"></div>
-				<a href="#"><button class="btn">Thêm vào giỏ</button></a>
+				<a href="/GreenProduct/themvaogiodssp?madm=<%=ma %>&masp=<%=sp.getMaSanPham() %>"><button class="btn">Thêm vào giỏ</button></a>
 			</li>
 			<%} %>	
 		</ul>
