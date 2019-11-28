@@ -12,8 +12,6 @@
 <link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
 
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-
 </head>
 <body>
 <%@ include file="header.jsp" %>
@@ -79,10 +77,10 @@
 				      		</div>
 				      	</div>
 				      </td>
-				      <td><fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${item.value.sanPham.donGia}"/>VNĐ</td>
+				      <td><fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${item.value.sanPham.donGia}"/>đ</td>
 				      <td> 
 				      <div class="form-cart">
-				      <div class="row col-xs-9">
+				      <div class="row col-xs-8">
 				      <div class="col-xs-2">
 						      <c:if test="${item.value.soLuong==1}">
 						      	<button id="sub" type="button" disabled>-</button>
@@ -96,31 +94,33 @@
 					    	  <div class="col-xs-3"><a href="/GreenProduct/giohang/them/${item.value.sanPham.maSanPham}" onclick="handleClick(event,${item.value.soLuongCon},${item.value.sanPham.maSanPham})"><button type="button" >+</button></a></div>
 				      </div>
 				      </div>
+				      <small id="small${item.value.sanPham.maSanPham}" style="color:red;display:none;'">Số lượng sản phẩm không còn đủ!!!</small>
 				      </td>
 				      	
-				      <td><fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${item.value.tongTien()}"/>VNĐ</td>
+				      <td><fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${item.value.tongTien()}"/>đ</td>
 				    </tr>
 				    
 				 </c:forEach>
 				 <script>
 		   		function handleClick(event, sl, id){
 		   			var soLuong = document.getElementById(id).value;
+		   			var small = document.getElementById("small" + id);
 		   			console.log(sl);
 		   			if(soLuong == sl){
-		   				console.log("false");
-		   				$("#exampleModalCenter").modal('show');
+		   				/* console.log("false"); */
+		   				small.style.setProperty("display", "block");
 		   				event.preventDefault();
 		   			}else{
 		   				console.log("true");
 		   			}
-		   		} 
+		   		}
 		   		
 		   	</script>
 			  </tbody>
 			</table>
 			<div class="row">
 				<div class="col-12" style="text-align:right;">
-					<span style="margin-right:90px;font-size:20px;color:red;">Tổng tiền: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${sessionScope.TongGiaTriDonHang}"/>VNĐ</span>
+					<span style="margin-right:90px;font-size:20px;color:red;">Tổng tiền: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${sessionScope.TongGiaTriDonHang}"/>đ</span>
 				</div>
 			</div>
 			<div class="row">
