@@ -53,7 +53,7 @@
 						  </div>
 						</div>
 			    	</li>
-			    	<li><a class="color6" href="contact.html">Liên hệ</a></li>
+			    	<li><a class="color6" href="#">Liên hệ</a></li>
 			  		</ul> 
 				</div>
 			</div>
