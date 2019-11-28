@@ -36,7 +36,7 @@
 								<div class="h_nav">
 									<h4>Danh mục sản phẩm</h4>
 									<ul>
-										<li><a href="dssanpham?madm=0">Tất cả sản phẩm</a></li>
+										<li><a href="/GreenProduct/dssanpham?madm=0">Tất cả sản phẩm</a></li>
 										<%
 											ApplicationContext context = new ClassPathXmlApplicationContext("IoC.xml");
 											DMSanPhamDAO dmsp = (DMSanPhamDAO) context.getBean("dbdmsanpham");
@@ -44,7 +44,7 @@
 											for (DMSanPham dm : listDMSanPham){
 										%>
 										
-										<li><a href="dssanpham?madm=<%=dm.getMaDM()%>"> <%= dm.getTenDM() %> </a></li>
+										<li><a href="/GreenProduct/dssanpham?madm=<%=dm.getMaDM()%>"> <%= dm.getTenDM() %> </a></li>
 										<%} %>
 									</ul>	
 									
@@ -61,6 +61,9 @@
 	       <div class="box_11-cart">
 		     <div class="box_11">
 		     	<c:if test="${sessionScope.TongSoLuongGioHang==0}">
+		     		<a href="#"><h4><p>Giỏ hàng</p><img src="<c:url value="/resources/images/cart.png" />" alt=""><div class="clearfix"> </div></h4></a>
+		     	</c:if>
+		     	<c:if test="${sessionScope.TongSoLuongGioHang==null}">
 		     		<a href="#"><h4><p>Giỏ hàng</p><img src="<c:url value="/resources/images/cart.png" />" alt=""><div class="clearfix"> </div></h4></a>
 		     	</c:if>
 		     	<c:if test="${sessionScope.TongSoLuongGioHang>0}">

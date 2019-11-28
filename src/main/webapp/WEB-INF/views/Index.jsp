@@ -36,7 +36,7 @@
 					<h3><%= sp.getTenSanPham() %></h3>
 					<c:set var="dongia" value="<%=sp.getDonGia() %>"/>
 					<h4>
-						Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${dongia}"/> VNĐ
+						Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${dongia}"/> đ
 					</h4>		
 			</a>
 			<div class="clearfix"></div>
@@ -64,7 +64,7 @@
 					<h3><%= sp.getTenSanPham() %></h3>
 					<c:set var="dongia" value="<%=sp.getDonGia() %>"/>
 					<h4>
-						Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${dongia}"/> VNĐ
+						Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${dongia}"/> đ
 					</h4>	
 			</a>
 			<div class="clearfix"></div>

@@ -17,8 +17,7 @@ import com.ptpmcn.dao.SanPhamDAO;
 import com.ptpmcn.entity.GioHang;
 import com.ptpmcn.entity.SanPham;
 
-
-
+import service.GioHangService;
 
 @Controller
 public class IndexController {
@@ -27,7 +26,7 @@ public class IndexController {
 	SanPhamDAO sp = (SanPhamDAO) context.getBean("dbsanpham");
 	
 	@RequestMapping("/")
-	public String loadIndex(ModelMap modelMap) {
+	public String loadIndex(HttpSession session, ModelMap modelMap) {
 		List<SanPham> listSanPhamMoi = sp.getListSanPhamMoi();
 		modelMap.addAttribute("ListSanPhamMoi", listSanPhamMoi);
 		List<SanPham> listSanPhamBanChay = sp.getListSanPhamBanChay();
@@ -38,42 +37,20 @@ public class IndexController {
 	@RequestMapping("/themvaogio")
 	public String themVaoGio(HttpSession session, @RequestParam("masp") int id, ModelMap modelMap) {
 		HashMap<Integer, GioHang> arrGioHang = (HashMap<Integer, GioHang>)session.getAttribute("GioHang");
-		if (arrGioHang == null) {
-            arrGioHang = new HashMap<Integer,GioHang>();
-        }
 		SanPham sanPham = sp.getSanPhamById(id);
-		
-		GioHang gioHang = new GioHang();
-		if(sanPham != null) {
-			if(arrGioHang.containsKey(id)) {
-				gioHang = arrGioHang.get(id);
-				gioHang.setSanPham(sanPham);
-				gioHang.setSoLuong(gioHang.getSoLuong() + 1);
-				arrGioHang.put(id, gioHang);
-			}else {
-				gioHang.setSanPham(sanPham);
-				gioHang.setSoLuong(1);
-				arrGioHang.put(id, gioHang);
-			}
-		}
-		int total = 0;
-		int totalSL = 0;
-		for(GioHang gh:arrGioHang.values()) {
-			int dg = gh.getSanPham().getDonGia();
-			int sl = gh.getSoLuong();
-			int tt = dg * sl;
-			total = total + tt;
-			totalSL = totalSL + sl;
-		}
-		
+		int soLuongCon = sp.getSoLuong(id);
+		arrGioHang = GioHangService.tangGioHang(arrGioHang, sanPham, id, 1, soLuongCon);
+		int total = GioHangService.tongGiaTriGioHang(arrGioHang);
+		int totalSL = GioHangService.tongSoLuongGioHang(arrGioHang);
 		List<SanPham> listSanPhamMoi = sp.getListSanPhamMoi();
 		modelMap.addAttribute("ListSanPhamMoi", listSanPhamMoi);
 		List<SanPham> listSanPhamBanChay = sp.getListSanPhamBanChay();
 		modelMap.addAttribute("ListSanPhamBanChay", listSanPhamBanChay);
-		
 		session.setAttribute("TongGiaTriDonHang", total);
 		session.setAttribute("GioHang", arrGioHang);
 		session.setAttribute("TongSoLuongGioHang", totalSL);
 		return "Index";
 	}
+	
+	
 }
