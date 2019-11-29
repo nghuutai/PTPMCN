@@ -62,7 +62,7 @@ public class SanPhamDAO {
 		return listSanPhamMoi;
 	}
 	public List<SanPham> getListSanPhamBanChay() {
-		String sql = "SELECT MaDanhMuc,chitietgiohang.MaSanPham,TenSanPham,DonGia,SoLuong,HinhAnh,MoTa,HinhAnh,DonViTinh,SUM(chitietgiohang.SoLuongMua) as TongSoLuong FROM chitietgiohang, sanpham  where sanpham.MaSanPham = chitietgiohang.MaSanPham group by MaSanPham order by TongSoLuong DESC LIMIT 8;";
+		String sql = "SELECT MaDanhMuc,sanpham.MaSanPham,TenSanPham,DonGia,SoLuong,HinhAnh,MoTa,DonViTinh,SUM(chitietgiohang.SoLuongMua) as TongSoLuong FROM chitietgiohang, sanpham  where sanpham.MaSanPham = chitietgiohang.MaSanPham group by MaSanPham order by TongSoLuong DESC LIMIT 8;";
 		List<SanPham> listSanPhamBanChay = jdbcTemplate.query(sql, new RowMapper<SanPham>() {
 
 			public SanPham mapRow(ResultSet rs, int rowNum) throws SQLException {
