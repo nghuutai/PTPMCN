@@ -2,16 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Green Product</title>
-<meta charset="UTF-8"/>
-<link href="<c:url value="/resources/css/bootstrap.css"/>" rel="stylesheet">
-<link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet">
 
-</head>
-<body>
 <%@ include file="header.jsp" %>
 <div style="background-color: #088A4B;height:35px;color:#fff; font-size:18px; padding:5px; text-align:center;margin-bottom:20px">
 		<span>Thông tin khách hàng</span>
@@ -40,6 +31,4 @@
 			  </div>
 			</form>
 		</div>
-	<%@ include file="footer.jsp" %>
-</body>
-</html>
+<%@ include file="footer.jsp" %>
