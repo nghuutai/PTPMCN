@@ -10,7 +10,12 @@
 <div class="container">
 	<div class="content">
 		<ul class="products">
-			<c:set var="listSP" value="${ListSanPham}"></c:set>	
+			<c:if test ="${ListSanPham != null}">
+				<c:set var="listSP" value="${ListSanPham}"></c:set>	
+			</c:if>
+			<c:if test ="${ListSanPhamTimKiem != null}">
+				<c:set var="listSP" value="${ListSanPhamTimKiem}"></c:set>	
+			</c:if>
 			<c:set var="maDM" value="${madm}"></c:set>	
 			<c:forEach items="${listSP}" var="sp">
 				<li> 
@@ -23,7 +28,10 @@
 					<div class="clearfix"></div>
 						<a href="/GreenProduct/themvaogiodssp?madm=${maDM}&masp=${sp.getMaSanPham()}"><button class="btn">Thêm vào giỏ</button></a>
 				</li>
-			</c:forEach>	
+			</c:forEach>
+			<c:if test ="${ListSanPhamTimKiem.size()==0}">
+			 		<span class="title-tim">Không tìm thấy kết quả!</span>
+			</c:if>	
 		</ul>
 		
 	</div>

@@ -391,7 +391,7 @@ html,body,p,a,font,ol,ul,li,form,label,th,td {
 
 .form-cart input[type="text"] {
   height: 34px;
-  padding: 6px 6px;
+  padding: 6px;
   font-size: 15px;
   line-height: 1.42857143;
   color: #555;
@@ -411,6 +411,7 @@ html,body,p,a,font,ol,ul,li,form,label,th,td {
   color: white;
   font-size:17px;
   font-weight:bold;
+ 
 	
 }
 .form-cart button:hover{
@@ -418,6 +419,14 @@ html,body,p,a,font,ol,ul,li,form,label,th,td {
   color: #fff;
 	
 }
+.title-tim{ 
+	padding: 30px;
+	display: block;
+	text-align:center;
+	font-size:25px;
+
+}
+
 
 
 
