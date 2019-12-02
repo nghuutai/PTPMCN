@@ -132,4 +132,25 @@ public class SanPhamDAO {
 		int result = jdbcTemplate.update(sql, sl, id);
 		return result;
 	}
+	public List<SanPham> timKiemSanPham(String key) {
+		String sql = "SELECT * FROM sanpham  WHERE 	TenSanPham LIKE '%"+key+"%'";
+		List<SanPham> listSanPham = jdbcTemplate.query(sql, new RowMapper<SanPham>() {
+
+			public SanPham mapRow(ResultSet rs, int rowNum) throws SQLException {
+				SanPham sp = new SanPham();
+				sp.setMaSanPham(rs.getInt("MaSanPham"));
+				sp.setMaDM(rs.getString("MaDanhMuc"));
+				sp.setTenSanPham(rs.getString("TenSanPham"));
+				sp.setDonGia(rs.getInt("DonGia"));
+				sp.setSoLuong(rs.getInt("SoLuong"));
+				sp.setHinhAnh(rs.getString("HinhAnh"));
+				sp.setMoTa(rs.getString("MoTa"));
+				sp.setDonViTinh(rs.getString("DonViTinh"));
+				
+				return sp;
+			}
+		});
+		return listSanPham;
+	}
+	
 }

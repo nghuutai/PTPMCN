@@ -73,7 +73,7 @@
 				      		</div>
 				      		<div class="col-xs-6">
 				      			<div style="margin:15px 0px;">${item.value.sanPham.tenSanPham}</div>
-				      			<a href="/GreenProduct/giohang/xoa/${item.value.sanPham.maSanPham}"><span>Xóa</span></a>
+				      			<a href="/GreenProduct/giohang/xoa/${item.value.sanPham.maSanPham}"><span style="color:red;">Xóa</span></a>
 				      		</div>
 				      	</div>
 				      </td>

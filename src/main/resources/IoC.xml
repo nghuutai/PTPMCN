@@ -30,6 +30,6 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 	    <property name="url" value="jdbc:mysql://localhost:3306/greenproduct" />
 	    <property name="username" value="root" />
-	    <property name="password" value="0967185914tt@@" />
+	    <property name="password" value="kimhanbin29" />
 	</bean>	
 </beans>

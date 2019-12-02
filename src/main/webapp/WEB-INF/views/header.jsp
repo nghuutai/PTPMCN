@@ -71,11 +71,24 @@
 		     </div>
 	   	</div>
 	   	<div class="search">	  
-			<input type="text" name="s" class="textbox" placeholder="Tìm sản phẩm">
-			<input type="submit" id="submit" name="submit">
+			<form name ="timkiem" action="timkiem" method="post" onsubmit="return checkTim()" >	  
+					<input type="text" name="tim" class="textbox" placeholder="Tìm sản phẩm">
+					<input type="submit" id="submit" name="submit">
+			</form>
 		</div>
 	    <div class="clearfix"></div>
     </div>
     <div class="clearfix"></div>
 </div>
 </div>
+<script type="text/javascript">
+function checkTim(){
+	  var value = document.forms["timkiem"]["tim"].value;
+	  console.log(value);
+	  if(value === "")
+	  {
+	        alert("Vui lòng nhập tên sản phẩm cần tìm!");
+	        return false;
+	  }
+  }
+</script>
