@@ -15,7 +15,7 @@
 		<div class="col-xs-6">
 			<form action="/GreenProduct/addchitietsanpham?masp=${SanPham.maSanPham}" method="post">	
 			      <h2 style="margin-top:20px;margin-bottom:20px;color:#088A4B;">${SanPham.tenSanPham}</h2>
-			      <label style="margin-top:20px;margin-bottom:20px;font-size:20px;">Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${SanPham.donGia}"/> đ/${SanPham.donViTinh}</label><br/>
+			      <label style="margin-top:20px;margin-bottom:20px;font-size:20px;">Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${SanPham.donGia}"/>đ/${SanPham.donViTinh}</label><br/>
 			      <label style="margin-top:20px;font-size:18px;">Mô tả: </label><span style="font-size:18px;"> ${SanPham.moTa}</span><br/>
 			      <div class="form-group row" style="margin-top:20px;">
 			        <div class="col-xs-4" style="margin-top:10px;">

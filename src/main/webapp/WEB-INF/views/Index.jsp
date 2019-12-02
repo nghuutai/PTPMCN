@@ -22,7 +22,7 @@
 					<a class="cart" href="/GreenProduct/chitietsanpham?masp=${sp.getMaSanPham()}"><img src="resources/images/${sp.getHinhAnh()}" alt="" width="252px" height="190px">
 							<h3>${sp.getTenSanPham()}</h3>
 							<h4>
-								Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${sp.getDonGia()}"/> Đ
+								Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${sp.getDonGia()}"/>đ/${sp.getDonViTinh()}
 							</h4>	
 					</a>
 					<div class="clearfix"></div>
@@ -44,7 +44,7 @@
 					<a class="cart" href="/GreenProduct/chitietsanpham?masp=${sp.getMaSanPham()}"><img src="resources/images/${sp.getHinhAnh()}" alt="" width="252px" height="190px">
 							<h3>${sp.getTenSanPham()}</h3>
 							<h4>
-								Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${sp.getDonGia()}"/> Đ
+								Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${sp.getDonGia()}"/>đ/${sp.getDonViTinh()}
 							</h4>	
 					</a>
 					<div class="clearfix"></div>
