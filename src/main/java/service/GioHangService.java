@@ -34,6 +34,18 @@ public class GioHangService {
 		return arrGioHang;
 	}
 	
+	public static GioHang getGioHang(HashMap<Integer,GioHang> arrGioHang, int id){
+		if (arrGioHang == null) {
+            arrGioHang = new HashMap<Integer,GioHang>();
+        }
+		GioHang gh = new GioHang();
+		
+		if(arrGioHang.containsKey(id)) {
+			gh = arrGioHang.get(id);
+		}
+		return gh;
+	}
+	
 	public static HashMap<Integer,GioHang> tangGioHang(HashMap<Integer,GioHang> arrGioHang, SanPham sanPham, int id, int sl, int soLuongCon){
 		if (arrGioHang == null) {
             arrGioHang = new HashMap<Integer,GioHang>();
