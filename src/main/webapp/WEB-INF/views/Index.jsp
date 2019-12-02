@@ -19,7 +19,7 @@
 			<c:set var="listSPBanChay" value="${ListSanPhamBanChay}"></c:set>	
 			<c:forEach items="${listSPBanChay}" var="sp">
 				<li>
-					<a class="cart" href="#"><img src="resources/images/${sp.getHinhAnh()}" alt="" width="252px" height="190px">
+					<a class="cart" href="/GreenProduct/chitietsanpham?masp=${sp.getMaSanPham()}"><img src="resources/images/${sp.getHinhAnh()}" alt="" width="252px" height="190px">
 							<h3>${sp.getTenSanPham()}</h3>
 							<h4>
 								Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${sp.getDonGia()}"/> Đ
@@ -41,7 +41,7 @@
 			<c:set var="listSPMoi" value="${ListSanPhamMoi}"></c:set>	
 			<c:forEach items="${listSPMoi}" var="sp">
 				<li>
-					<a class="cart" href="#"><img src="resources/images/${sp.getHinhAnh()}" alt="" width="252px" height="190px">
+					<a class="cart" href="/GreenProduct/chitietsanpham?masp=${sp.getMaSanPham()}"><img src="resources/images/${sp.getHinhAnh()}" alt="" width="252px" height="190px">
 							<h3>${sp.getTenSanPham()}</h3>
 							<h4>
 								Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value ="${sp.getDonGia()}"/> Đ
