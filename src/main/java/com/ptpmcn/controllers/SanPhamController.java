@@ -60,7 +60,6 @@ public class SanPhamController {
 				List<SanPham> listSanPham = sp.getListSanPhamTheoDanhMuc(id);
 				modelMap.addAttribute("ListSanPham", listSanPham);
 			}
-		modelMap.addAttribute("madm", id);
 		session.setAttribute("TongGiaTriDonHang", total);
 		session.setAttribute("GioHang", arrGioHang);
 		session.setAttribute("TongSoLuongGioHang", totalSL);
