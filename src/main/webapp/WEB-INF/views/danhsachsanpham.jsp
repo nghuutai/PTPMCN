@@ -16,7 +16,6 @@
 			<c:if test ="${ListSanPhamTimKiem != null}">
 				<c:set var="listSP" value="${ListSanPhamTimKiem}"></c:set>	
 			</c:if>
-			<c:set var="maDM" value="${madm}"></c:set>	
 			<c:forEach items="${listSP}" var="sp">
 				<li> 
 					<a class="cart" href="/GreenProduct/chitietsanpham?masp=${sp.getMaSanPham()}"><img src="resources/images/${sp.getHinhAnh()}" alt="" width="252px" height="190px">
@@ -26,7 +25,7 @@
 							</h4>	
 					</a>
 					<div class="clearfix"></div>
-						<a href="/GreenProduct/themvaogiodssp?madm=${maDM}&masp=${sp.getMaSanPham()}"><button class="btn">Thêm vào giỏ</button></a>
+						<a href="/GreenProduct/themvaogiodssp?madm=${sp.getMaDM()}&masp=${sp.getMaSanPham()}"><button class="btn">Thêm vào giỏ</button></a>
 				</li>
 			</c:forEach>
 			<c:if test ="${ListSanPhamTimKiem.size()==0}">

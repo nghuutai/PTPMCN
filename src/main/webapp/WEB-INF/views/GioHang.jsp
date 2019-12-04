@@ -3,17 +3,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Green Product</title>
-<meta charset="UTF-8"/>
-<link href="<c:url value="/resources/css/bootstrap.css"/>" rel="stylesheet">
-<link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
-
-</head>
-<body>
 <%@ include file="header.jsp" %>
 <div style="background-color: #088A4B;height:35px;color:#fff; font-size:18px; padding:5px; text-align:center;">
 		<span>Giỏ hàng</span>
@@ -72,7 +61,7 @@
 				      			<img style="width: 90px; height:90px;" src="<c:url value='/resources/images/${item.value.sanPham.hinhAnh}' />" alt="..." class="img-thumbnail">
 				      		</div>
 				      		<div class="col-xs-6">
-				      			<div style="margin:15px 0px;">${item.value.sanPham.tenSanPham}</div>
+				      			<div style="margin:15px 0px;"><a href="/GreenProduct/chitietsanpham?masp=${item.value.sanPham.maSanPham}">${item.value.sanPham.tenSanPham}</a></div>
 				      			<a href="/GreenProduct/giohang/xoa/${item.value.sanPham.maSanPham}"><span style="color:red;">Xóa</span></a>
 				      		</div>
 				      	</div>
@@ -134,5 +123,3 @@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <%@ include file="footer.jsp" %>
-</body>
-</html>
