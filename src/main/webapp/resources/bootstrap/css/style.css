@@ -428,6 +428,69 @@ html,body,p,a,font,ol,ul,li,form,label,th,td {
 }
 
 
+//danh muc san pham
+.btn_5{
+	padding:25px 40px;
+	font-size:1.1em;
+}
+.acount-btn:hover, .login-right input[type="submit"]:hover{
+	background:#000;
+	text-decoration:none;
+	color:#fff;
+}
+.thead {
+     text-align: center;
+}
+
+//dang nhap
+
+.bgdangnhap {
+	background: url(../images/banner.png) no-repeat center top;
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height:500px;
+}
+.form-dangnhap{
+	margin-top: 200px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+.btn2{
+  color: white;
+  font-size:15px
+}
+.btn2:hover {
+  color: #fff;
+}
+.bannerLogin {
+	background: url(../images/banner.png) no-repeat center top;
+	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-position: center;
+	min-height:500px;
+}
+.nenden{
+	height: 100%;
+    background: #0000008a;
+        width: 100%;
+    position: relative;
+}
+.content3{
+	position: absolute;
+    width: 31%;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 
 

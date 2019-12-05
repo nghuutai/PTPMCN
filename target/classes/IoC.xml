@@ -26,6 +26,14 @@
 		<property name="dataSource" ref="dbGreenProduct" />
 	</bean>
 	
+	<bean name="dbdanhmuc" class="com.ptpmcn.dao.DanhMucDAO">
+		<property name="dataSource" ref="dbGreenProduct" />
+	</bean>
+	
+	<bean name="dbtaikhoan" class="com.ptpmcn.dao.TaiKhoanDAO">
+		<property name="dataSource" ref="dbGreenProduct" />
+	</bean>
+	
 	<bean name="dbGreenProduct" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 	    <property name="url" value="jdbc:mysql://localhost:3306/greenproduct" />
