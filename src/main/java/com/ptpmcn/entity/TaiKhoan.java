@@ -3,7 +3,6 @@ package com.ptpmcn.entity;
 public class TaiKhoan {
 	public String taiKhoan;
 	private String matKhau;
-	private boolean vaiTro;
 	
 	public TaiKhoan() {
 	}
@@ -26,11 +25,4 @@ public class TaiKhoan {
 	public void setMatKhau(String matKhau) {
 		this.matKhau = matKhau;
 	}
-	public boolean getVaiTro() {
-		return vaiTro;
-	}
-	public void setVaiTro(Boolean vaiTro) {
-		this.vaiTro = vaiTro;
-	}
-
 }

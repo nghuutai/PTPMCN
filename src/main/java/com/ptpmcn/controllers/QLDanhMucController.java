@@ -1,6 +1,11 @@
 package com.ptpmcn.controllers;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,18 +21,24 @@ import com.ptpmcn.entity.DanhMuc;
 
 @Controller
 public class QLDanhMucController {
+	HttpSession session;
 	ApplicationContext context = new ClassPathXmlApplicationContext("IoC.xml");
 	DanhMucDAO db = (DanhMucDAO) context.getBean("dbdanhmuc");
 
 	@GetMapping("/qldanhmuc")
-	public String trangQLDanhMuc(ModelMap modelMap) {
+	public String trangQLDanhMuc(ModelMap modelMap){
 		
 		List<DanhMuc> listDanhMuc = db.getListDanhMuc();
 		modelMap.addAttribute("listDanhMuc", listDanhMuc);
 		modelMap.addAttribute("result", 1);
+		/*String user = (String) session.getAttribute("userLogin"); 
+		if(user.isEmpty() ) {
+			return "LoginAdmin";
+		}else {
+			return "QLDanhMuc";
+		}*/
 		return "QLDanhMuc";
 	}
-	
 	
 	@PostMapping("/qldanhmuc")
 	public String themDanhMuc(@RequestParam String maDanhMuc, String tenDanhMuc, ModelMap modelMap) {
@@ -50,7 +61,6 @@ public class QLDanhMucController {
 		else {
 			modelMap.addAttribute("result", 0);
 		}
-		//db.themDanhMuc(dm);
 		List<DanhMuc> listDanhMuc = db.getListDanhMuc();
 		modelMap.addAttribute("listDanhMuc", listDanhMuc);
 		return "QLDanhMuc";
@@ -65,4 +75,15 @@ public class QLDanhMucController {
 		modelMap.addAttribute("result", 1); // attribute cho alert
 		return "QLDanhMuc";
 	}
+	
+	
+	/*
+	 HttpServletResponse response) 
+				throws ServletException, IOException*/
+	/*String user = (String) session.getAttribute("userLogin"); 
+	if(user.isEmpty() ) {
+		response.sendRedirect("admin");
+	}else {
+		response.sendRedirect("qldanhmuc");
+	}*/
 }

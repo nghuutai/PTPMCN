@@ -27,28 +27,36 @@
 				  	<button type="submit" class="btn btn-primary mb-2" 
 				  	style=" width: 50%; margin-left: 25%;">Đăng nhập</button>
 			  </div>
-			 
+			 <%
+			 int i = (Integer) request.getAttribute("loginFail");
+				if( i == 0 ){
+			%>
+				<div class="alert alert-danger" role="alert">
+				  	Tên đăng nhập hoặc mật khẩu sai! Mời thử lại. 
+				</div>
+			<%
+				}
+			%>
 			</form>
 		 <script>
 			 	function Check(){
 			 		let user = document.forms["formdangnhap"]["tenDangNhap"].value;
 			 		let password = document.forms["formdangnhap"]["matKhau"].value;
-			 		if(user === "" && password === ""  ){
+			 		if(user === "" && password === "" ){
 			 			alert("Vui lòng nhập tên đăng nhập và mật khẩu!");
 			 			return false;
 			 		}
-			 		else if(user === ""){
+			 		else if(user === "" ){
 			 			alert("Vui lòng nhập tên đăng nhập!");
 			 			return false;
 			 		}
-			 		else if(password === ""){
+			 		else if(password === "" ){
 			 			alert("Vui lòng nhập mật khẩu!");
 			 			return false;
 			 		}
 			 		return true;
 			 	}
 			</script>
-			
 		</div>
 		</div>
 	</div>

@@ -1,5 +1,7 @@
+<%@page import="com.mysql.cj.Session"%>
 <%@page import="java.util.List"%>
 <%@page import="com.ptpmcn.entity.DanhMuc"%>
+<%@page import="com.ptpmcn.entity.TaiKhoan"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -18,7 +20,6 @@
 </head>
 <body>
 <%@ include file="headerAdmin.jsp" %>
-	
 <div class="content_top">
 	<div class="container">
 	   <div class="form-sanpham">
@@ -59,8 +60,6 @@
 			 		return true;
 			 	}
 			</script>
-			
-			
 		  <div class="form-sanpham">
 			<table class="table table-striped">
 			  <thead>
