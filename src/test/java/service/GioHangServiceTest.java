@@ -54,7 +54,7 @@ public class GioHangServiceTest {
 
 	@Test
 	public void testTongGiaTriGioHang() {
-		assertTrue(GioHangService.tongGiaTriGioHang(arr)==650000);
+		assertTrue(GioHangService.tongGiaTriGioHang(arr)==290000);
 	}
 
 }
