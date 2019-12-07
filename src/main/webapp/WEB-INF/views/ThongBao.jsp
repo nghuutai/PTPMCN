@@ -5,7 +5,11 @@
 
 <%@ include file="header.jsp" %>
 	<div class="container">
-		<h3 style="margin:40px 0px;">Bạn đã đặt hàng thành công</h3>
-		<a href="/GreenProduct">Tiếp tục mua hàng</a>
+		<div class="giohangtrong">
+				<h3>Bạn đã đặt hàng thành công!</h3>
+				<div class="chonthem">
+					<a href="/GreenProduct"><button type="button" class="btn btn-success"> << Về trang chủ</button></a>
+				</div>
+		</div>
 	</div>
 <%@ include file="footer.jsp" %>

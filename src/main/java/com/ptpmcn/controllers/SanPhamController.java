@@ -26,49 +26,72 @@ public class SanPhamController {
 	ApplicationContext context = new ClassPathXmlApplicationContext("IoC.xml");
 	SanPhamDAO sp = (SanPhamDAO) context.getBean("dbsanpham");
 	@GetMapping("/dssanpham")
-	public String layDanhSachSanPham(HttpSession session, @RequestParam("madm") String id,ModelMap modelMap) {
-		
+	public String hienThiDanhSachSanPham(@RequestParam("madm") String id,@RequestParam("page") int page,ModelMap modelMap) {
+		List<SanPham> listSanPham;
+		int soSPTrenTrang = 8;
+		int soTrang=1;
+		int soLuongSP = 0;
+		int trangHienTai = page > 1 ? page : 1;
 		if(id.equals("0"))
 		{
-			List<SanPham> listSanPham = sp.getListSanPham();
-			modelMap.addAttribute("ListSanPham", listSanPham);
+			soLuongSP = sp.demSoSanPham("0");
+			soTrang = (int) Math.ceil(soLuongSP /(float)soSPTrenTrang );
+			trangHienTai = trangHienTai > soTrang ? soTrang : trangHienTai;
+			int viTriBatDau = (trangHienTai-1)*soSPTrenTrang;
+			listSanPham = sp.layDSSanPhamTrenTrang("0",viTriBatDau,soSPTrenTrang);
 		}
 		else
 			{
-				List<SanPham> listSanPham = sp.getListSanPhamTheoDanhMuc(id);
-				modelMap.addAttribute("ListSanPham", listSanPham);
+				soLuongSP = sp.demSoSanPham(id);
+				soTrang = (int) Math.ceil(soLuongSP /(float)soSPTrenTrang );
+				trangHienTai = trangHienTai > soTrang ? soTrang : trangHienTai;
+				int viTriBatDau = (trangHienTai-1)*soSPTrenTrang;
+				listSanPham = sp.layDSSanPhamTrenTrang(id,viTriBatDau,soSPTrenTrang);
 			}
 		modelMap.addAttribute("madm", id);
+		modelMap.addAttribute("SoTrang", soTrang);
+		modelMap.addAttribute("TrangHienTai", page);
+		modelMap.addAttribute("ListSanPham", listSanPham);
 		return "danhsachsanpham";
 	}
 	
 	@RequestMapping("/themvaogiodssp")
-	public String themVaoGio(HttpSession session, @RequestParam("madm") String id, @RequestParam("masp") int idsp, ModelMap modelMap) {
+	public String themVaoGio(HttpSession session, @RequestParam("madm") String id, @RequestParam("masp") int idsp, @RequestParam("page") int page,ModelMap modelMap) {
 		HashMap<Integer, GioHang> arrGioHang = (HashMap<Integer, GioHang>)session.getAttribute("GioHang");
 		SanPham sanPham = sp.getSanPhamById(idsp);	
 		int soLuongCon = sp.getSoLuong(idsp);
 		arrGioHang = GioHangService.tangGioHang(arrGioHang, sanPham, idsp, 1, soLuongCon);
 		int total = GioHangService.tongGiaTriGioHang(arrGioHang);
 		int totalSL = GioHangService.tongSoLuongGioHang(arrGioHang);
+		List<SanPham> listSanPham;
+		int soSPTrenTrang = 8;
+		int soTrang=1;
+		int soLuongSP = 0;
+		int trangHienTai = page > 1 ? page : 1;
 		if(id.equals("0"))
 		{
-			List<SanPham> listSanPham = sp.getListSanPham();
-			modelMap.addAttribute("ListSanPham", listSanPham);
+			soLuongSP = sp.demSoSanPham("0");
+			soTrang = (int) Math.ceil(soLuongSP /(float)soSPTrenTrang );
+			trangHienTai = trangHienTai > soTrang ? soTrang : trangHienTai;
+			int viTriBatDau = (trangHienTai-1)*soSPTrenTrang;
+			listSanPham = sp.layDSSanPhamTrenTrang("0",viTriBatDau,soSPTrenTrang);
 		}
 		else
 			{
-				List<SanPham> listSanPham = sp.getListSanPhamTheoDanhMuc(id);
-				modelMap.addAttribute("ListSanPham", listSanPham);
+				soLuongSP = sp.demSoSanPham(id);
+				soTrang = (int) Math.ceil(soLuongSP /(float)soSPTrenTrang );
+				trangHienTai = trangHienTai > soTrang ? soTrang : trangHienTai;
+				int viTriBatDau = (trangHienTai-1)*soSPTrenTrang;
+				listSanPham = sp.layDSSanPhamTrenTrang(id,viTriBatDau,soSPTrenTrang);
 			}
 		session.setAttribute("TongGiaTriDonHang", total);
 		session.setAttribute("GioHang", arrGioHang);
 		session.setAttribute("TongSoLuongGioHang", totalSL);
+		modelMap.addAttribute("madm", id);
+		modelMap.addAttribute("SoTrang", soTrang);
+		modelMap.addAttribute("TrangHienTai", page);
+		modelMap.addAttribute("ListSanPham", listSanPham);
 		return "danhsachsanpham";
 	}
-	@PostMapping("/timkiem")
-	public String hienThiTimKiem(HttpSession session, @RequestParam("tim") String key,ModelMap modelMap) {
-		List<SanPham> listSanPhamTimKiem = sp.timKiemSanPham(key);
-		modelMap.addAttribute("ListSanPhamTimKiem", listSanPhamTimKiem);
-		return "danhsachsanpham";
-	}
+	
 }
