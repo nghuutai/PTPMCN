@@ -426,6 +426,38 @@ html,body,p,a,font,ol,ul,li,form,label,th,td {
 	font-size:25px;
 
 }
+.pagination-0 nav{
+	display: flex;
+    justify-content: center;
+	
+}
+.tranghientai{
+	font-weight:bold;
+	color:#000;
+}
+.chonthem{
+	margin: 0px 0px 200px 20px;
+}
+.chonthem button{
+	font-size:15px;
+	font-weight:500;
+}
+.giohangtrong {
+	text-align:center;
+	margin:30px 0px;
+}
+.form-control {
+	text-align:left;
+}
+.ttdonhang span{
+	color:green;
+	font-weight:bold;
+	font-size:20px;
+}
+.ttdonhang {
+	margin: 10px 0px 20px 15px;
+
+}
 
 
 

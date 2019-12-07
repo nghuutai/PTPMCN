@@ -16,7 +16,7 @@ public class ChiTietHoaDonDAO {
 	}
 	
 	public int addChiTietHoaDon(ChiTietHoaDon chiTietHoaDon) {
-		String sql = "INSERT INTO `GreenProduct`.`chitietgiohang` (`MaGioHang`, `MaSanPham`, `SoLuongMua`) VALUES (?, ?, ?);";
+		String sql = "INSERT INTO `GreenProduct`.`chitiethoadon` (`MaHoaDon`, `MaSanPham`, `SoLuongMua`) VALUES (?, ?, ?);";
 		int result = jdbcTemplate.update(sql, chiTietHoaDon.getHoaDon().getMaHoaDon(), chiTietHoaDon.getSanPham().getMaSanPham(), chiTietHoaDon.getSoLuongMua());
 		return 1;
 	}

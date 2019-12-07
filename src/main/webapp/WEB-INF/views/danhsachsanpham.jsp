@@ -10,12 +10,7 @@
 <div class="container">
 	<div class="content">
 		<ul class="products">
-			<c:if test ="${ListSanPham != null}">
-				<c:set var="listSP" value="${ListSanPham}"></c:set>	
-			</c:if>
-			<c:if test ="${ListSanPhamTimKiem != null}">
-				<c:set var="listSP" value="${ListSanPhamTimKiem}"></c:set>	
-			</c:if>
+			<c:set var="listSP" value="${ListSanPham}"></c:set>	
 			<c:forEach items="${listSP}" var="sp">
 				<li> 
 					<a class="cart" href="/GreenProduct/chitietsanpham?masp=${sp.getMaSanPham()}"><img src="resources/images/${sp.getHinhAnh()}" alt="" width="252px" height="190px">
@@ -25,15 +20,58 @@
 							</h4>	
 					</a>
 					<div class="clearfix"></div>
-						<a href="/GreenProduct/themvaogiodssp?madm=${sp.getMaDM()}&masp=${sp.getMaSanPham()}"><button class="btn">Thêm vào giỏ</button></a>
+						<a href="/GreenProduct/themvaogiodssp?madm=${madm}&masp=${sp.getMaSanPham()}&page=${TrangHienTai}"><button class="btn">Thêm vào giỏ</button></a>
 				</li>
 			</c:forEach>
-			<c:if test ="${ListSanPhamTimKiem.size()==0}">
-			 		<span class="title-tim">Không tìm thấy kết quả!</span>
-			</c:if>	
 		</ul>
-		
+		<c:if test ="${SoTrang != 1}">
+			<div class="col-md-12 pagination-0">
+				<nav aria-label="Page navigation example">
+				  <ul class="pagination">
+				    <li class="page-item">
+				    <c:choose>
+    					<c:when test="${TrangHienTai <= 1}">
+      						<a class="page-link" href="/GreenProduct/dssanpham?madm=${madm}&page=1" aria-label="Previous">
+				        		<span aria-hidden="true">&laquo;</span>
+				        		<span class="sr-only">Previous</span>
+				      		</a>
+    					</c:when>    
+    					<c:otherwise>
+    						<a class="page-link" href="/GreenProduct/dssanpham?madm=${madm}&page=${TrangHienTai-1}" aria-label="Previous">
+				        		<span aria-hidden="true">&laquo;</span>
+				        		<span class="sr-only">Previous</span>
+				      		</a>
+    					</c:otherwise>
+					</c:choose>
+				    </li>
+				    <c:forEach var="i" begin = "1" end = "${SoTrang}" step="1">
+				    	<c:if test ="${TrangHienTai==i}">
+				    	<li class="page-item"><a class="page-link" href="/GreenProduct/dssanpham?madm=${madm}&page=${i}" ><span class="tranghientai">${i}</span></a></li>
+				    	</c:if>
+				    	<c:if test ="${TrangHienTai!=i}">
+				    	<li class="page-item"><a class="page-link" href="/GreenProduct/dssanpham?madm=${madm}&page=${i}" >${i}</a></li>
+				    	</c:if>
+				    </c:forEach>
+				    <li class="page-item">
+				    <c:choose>
+	    				<c:when test="${TrangHienTai >= SoTrang}">
+	      					<a class="page-link" href="/GreenProduct/dssanpham?madm=${madm}&page=${SoTrang}" aria-label="Next">
+					        	<span aria-hidden="true">&raquo;</span>
+					        	<span class="sr-only">Next</span>
+					      	</a>
+	    				</c:when>    
+	    				<c:otherwise>
+	    					<a class="page-link" href="/GreenProduct/dssanpham?madm=${madm}&page=${TrangHienTai+1}" aria-label="Next">
+					        	<span aria-hidden="true">&raquo;</span>
+					        	<span class="sr-only">Next</span>
+					      	</a>
+	    				</c:otherwise>
+					</c:choose>
+				    </li>
+				  </ul>
+				</nav>
+			</div>
+		</c:if>
 	</div>
 </div>
 <%@ include file="footer.jsp" %>
-	

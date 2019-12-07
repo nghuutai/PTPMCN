@@ -10,12 +10,10 @@
 	<div class="container">
 		<div class="content">	
 		<c:if test="${sessionScope.TongSoLuongGioHang==0}">
-			<div class="row" style="margin:20px; line-height:30px">
-				<div class="col-12">
-					GIỎ HÀNG TRỐNG
-				</div>
-				<div class="col-12">
-					<a href="/GreenProduct">Bắt đầu mua hàng</a>
+			<div class="giohangtrong">
+				<h3>Không có sản phẩm nào trong giỏ hàng!</h3>
+				<div class="chonthem">
+					<a href="/GreenProduct"><button type="button" class="btn btn-success"> << Về trang chủ</button></a>
 				</div>
 			</div>
 		</c:if>

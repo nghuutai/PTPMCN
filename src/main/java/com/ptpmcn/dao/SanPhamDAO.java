@@ -21,26 +21,6 @@ public class SanPhamDAO {
 		this.jdbcTemplate = new JdbcTemplate(dbGreenProduct);
 	}
 
-	public List<SanPham> getListSanPham() {
-		String sql = "select * from sanpham";
-		List<SanPham> listSanPham = jdbcTemplate.query(sql, new RowMapper<SanPham>() {
-
-			public SanPham mapRow(ResultSet rs, int rowNum) throws SQLException {
-				SanPham sp = new SanPham();
-				sp.setMaSanPham(rs.getInt("MaSanPham"));
-				sp.setMaDM(rs.getString("MaDanhMuc"));
-				sp.setTenSanPham(rs.getString("TenSanPham"));
-				sp.setDonGia(rs.getInt("DonGia"));
-				sp.setSoLuong(rs.getInt("SoLuong"));
-				sp.setHinhAnh(rs.getString("HinhAnh"));
-				sp.setMoTa(rs.getString("MoTa"));
-				sp.setDonViTinh(rs.getString("DonViTinh"));
-				
-				return sp;
-			}
-		});
-		return listSanPham;
-	}
 	public List<SanPham> getListSanPhamMoi() {
 		String sql = "select * from sanpham order by MaSanPham DESC limit 8";
 		List<SanPham> listSanPhamMoi = jdbcTemplate.query(sql, new RowMapper<SanPham>() {
@@ -62,7 +42,7 @@ public class SanPhamDAO {
 		return listSanPhamMoi;
 	}
 	public List<SanPham> getListSanPhamBanChay() {
-		String sql = "SELECT MaDanhMuc,sanpham.MaSanPham,TenSanPham,DonGia,SoLuong,HinhAnh,MoTa,DonViTinh,SUM(chitietgiohang.SoLuongMua) as TongSoLuong FROM chitietgiohang, sanpham  where sanpham.MaSanPham = chitietgiohang.MaSanPham group by MaSanPham order by TongSoLuong DESC LIMIT 8;";
+		String sql = "SELECT MaDanhMuc,sanpham.MaSanPham,TenSanPham,DonGia,SoLuong,HinhAnh,MoTa,DonViTinh,SUM(chitiethoadon.SoLuongMua) as TongSoLuong FROM chitiethoadon, sanpham  where sanpham.MaSanPham = chitiethoadon.MaSanPham group by MaSanPham order by TongSoLuong DESC LIMIT 8;";
 		List<SanPham> listSanPhamBanChay = jdbcTemplate.query(sql, new RowMapper<SanPham>() {
 
 			public SanPham mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -150,6 +130,67 @@ public class SanPhamDAO {
 				return sp;
 			}
 		});
+		return listSanPham;
+	}
+	public int demSoSanPham(String maDM) {
+		int dem = 0;
+		String sql;
+		if(maDM == "0") {
+			sql = "select count(*) from greenproduct.sanpham";
+			dem = jdbcTemplate.queryForObject(sql, Integer.class);
+		}
+		else
+		{
+			sql = "select count(*) from greenproduct.sanpham where MaDanhMuc = ?";	
+			dem = jdbcTemplate.queryForObject(sql, Integer.class,maDM);
+		}
+		
+		return dem;
+	}
+	public List<SanPham> layDSSanPhamTrenTrang(String maDM, int viTriBatDau, int soSPTrenTrang) {
+		String sql;
+		List<SanPham> listSanPham;
+		if (maDM == "0")
+		{
+			sql = "SELECT * FROM sanpham LIMIT ?,?";
+			listSanPham = jdbcTemplate.query(sql, new RowMapper<SanPham>() {
+
+				public SanPham mapRow(ResultSet rs, int rowNum) throws SQLException {
+					SanPham sp = new SanPham();
+					sp.setMaSanPham(rs.getInt("MaSanPham"));
+					sp.setMaDM(rs.getString("MaDanhMuc"));
+					sp.setTenSanPham(rs.getString("TenSanPham"));
+					sp.setDonGia(rs.getInt("DonGia"));
+					sp.setSoLuong(rs.getInt("SoLuong"));
+					sp.setHinhAnh(rs.getString("HinhAnh"));
+					sp.setMoTa(rs.getString("MoTa"));
+					sp.setDonViTinh(rs.getString("DonViTinh"));
+					
+					return sp;
+				}
+			},viTriBatDau,soSPTrenTrang);
+		}
+		else
+		{
+			sql = "SELECT * FROM sanpham where MaDanhMuc = ? LIMIT ?,?";
+			listSanPham = jdbcTemplate.query(sql, new RowMapper<SanPham>() {
+
+				public SanPham mapRow(ResultSet rs, int rowNum) throws SQLException {
+					SanPham sp = new SanPham();
+					sp.setMaSanPham(rs.getInt("MaSanPham"));
+					sp.setMaDM(rs.getString("MaDanhMuc"));
+					sp.setTenSanPham(rs.getString("TenSanPham"));
+					sp.setDonGia(rs.getInt("DonGia"));
+					sp.setSoLuong(rs.getInt("SoLuong"));
+					sp.setHinhAnh(rs.getString("HinhAnh"));
+					sp.setMoTa(rs.getString("MoTa"));
+					sp.setDonViTinh(rs.getString("DonViTinh"));
+					
+					return sp;
+				}
+			},maDM,viTriBatDau,soSPTrenTrang);
+
+		}
 		return listSanPham;
 	}
 	

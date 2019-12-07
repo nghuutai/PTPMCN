@@ -29,14 +29,14 @@
 		    <ul class="megamenu skyblue">
 				<li><a class="color4" href="/GreenProduct">Trang chủ</a></li>				
 				<li><a class="color5" href="#">Giới thiệu</a></li>
-				<li class="grid"><a class="color2" href="/GreenProduct/dssanpham?madm=0">Sản phẩm</a>
+				<li class="grid"><a class="color2" href="/GreenProduct/dssanpham?madm=0&page=1">Sản phẩm</a>
 					 <div class="megapanel">
 						<div class="row">
 							<div class="col1">
 								<div class="h_nav">
 									<h4>Danh mục sản phẩm</h4>
 									<ul>
-										<li><a href="/GreenProduct/dssanpham?madm=0">Tất cả sản phẩm</a></li>
+										<li><a href="/GreenProduct/dssanpham?madm=0&page=1">Tất cả sản phẩm</a></li>
 										<%
 											ApplicationContext context = new ClassPathXmlApplicationContext("IoC.xml");
 											DMSanPhamDAO dmsp = (DMSanPhamDAO) context.getBean("dbdmsanpham");
@@ -44,7 +44,7 @@
 											for (DMSanPham dm : listDMSanPham){
 										%>
 										
-										<li><a href="/GreenProduct/dssanpham?madm=<%=dm.getMaDM()%>"> <%= dm.getTenDM() %> </a></li>
+										<li><a href="/GreenProduct/dssanpham?madm=<%=dm.getMaDM()%>&page=1"> <%= dm.getTenDM() %> </a></li>
 										<%} %>
 									</ul>	
 								</div>												
@@ -71,8 +71,8 @@
 		     </div>
 	   	</div>
 	   	<div class="search">	  
-			<form name ="timkiem" action="timkiem" method="post" onsubmit="return checkTim()" >	  
-					<input type="text" name="tim" class="textbox" placeholder="Tìm sản phẩm">
+			<form name ="timkiem" action="/GreenProduct/timkiem" method="post" onsubmit="return checkTim()" >	  
+					<input type="text" name="tim" class="textbox" placeholder="Tìm sản phẩm">		
 					<input type="submit" id="submit" name="submit">
 			</form>
 		</div>

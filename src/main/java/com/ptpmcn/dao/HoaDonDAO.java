@@ -16,13 +16,13 @@ public class HoaDonDAO {
 	}
 	
 	public int addHoaDon(HoaDon hoaDon) {
-		String sql = "INSERT INTO `GreenProduct`.`giohang` (`NgayTaoGioHang`, `Email`, `SoDienThoai`, `TenKhachHang`, `DiaChi`, `TinhTrangGioHang`) VALUES (?, ?, ?, ?, ?, ?);";
+		String sql = "INSERT INTO `GreenProduct`.`hoadon` (`NgayTao`, `Email`, `SoDienThoai`, `TenKhachHang`, `DiaChi`, `TinhTrangHD`) VALUES (?, ?, ?, ?, ?, ?);";
 		int result = jdbcTemplate.update(sql, hoaDon.getNgayTao(), hoaDon.getEmail(), hoaDon.getSoDienThoai(), hoaDon.getTenKhachHang(), hoaDon.getDiaChi(), hoaDon.getTinhTrangHoaDon());
 		return result;
 	}
 	
 	public int getMaHoaDon() {
-		String sql = "SELECT max(MaGioHang) FROM GreenProduct.giohang;";
+		String sql = "SELECT max(MaHoaDon) FROM GreenProduct.hoadon;";
 		int result =jdbcTemplate.queryForObject(sql, Integer.class);
 		return result;
 	}
