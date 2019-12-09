@@ -53,7 +53,7 @@
 	</div>
 	<div class="row">
 		<div class="col-12" style="text-align:center;margin-top:20px;">
-			<a href="/GreenProduct/dathang"><button type="submit" class="btn">Xác nhận mua hàng</button></a>
+			<a href="/GreenProduct/dathang"><button type="submit" class="btn">Xác nhận đặt hàng</button></a>
 		</div>
 	</div>
 </div>

@@ -60,10 +60,10 @@
 	    <div class="box_11-cart">
 		     <div class="box_11">
 		     	<c:if test="${sessionScope.TongSoLuongGioHang==0}">
-		     		<a href="#"><h4><p>Giỏ hàng</p><img src="<c:url value="/resources/images/cart.png" />" alt=""><div class="clearfix"> </div></h4></a>
+		     		<a href="/GreenProduct/giohang"><h4><p>Giỏ hàng</p><img src="<c:url value="/resources/images/cart.png" />" alt=""><div class="clearfix"> </div></h4></a>
 		     	</c:if>
 		     	<c:if test="${sessionScope.TongSoLuongGioHang==null}">
-		     		<a href="#"><h4><p>Giỏ hàng</p><img src="<c:url value="/resources/images/cart.png" />" alt=""><div class="clearfix"> </div></h4></a>
+		     		<a href="/GreenProduct/giohang"><h4><p>Giỏ hàng</p><img src="<c:url value="/resources/images/cart.png" />" alt=""><div class="clearfix"> </div></h4></a>
 		     	</c:if>
 		     	<c:if test="${sessionScope.TongSoLuongGioHang>0}">
 		     		<a href="/GreenProduct/giohang"><h4><p>Giỏ hàng (${sessionScope.TongSoLuongGioHang})</p><img src="<c:url value="/resources/images/cart.png" />" alt=""><div class="clearfix"> </div></h4></a>
