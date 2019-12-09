@@ -8,7 +8,6 @@ public class DanhMuc {
 	}
 	
 	public DanhMuc(String maDanhMuc, String tenDanhMuc) {
-		super();
 		this.maDanhMuc = maDanhMuc;
 		this.tenDanhMuc = tenDanhMuc;
 	}
@@ -25,5 +24,4 @@ public class DanhMuc {
 	public void setTenDanhMuc(String tenDanhMuc) {
 		this.tenDanhMuc = tenDanhMuc;
 	}
-
 }
