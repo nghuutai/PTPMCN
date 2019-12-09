@@ -44,7 +44,7 @@
 											for (DanhMuc dm : listDMSanPham){
 										%>
 										
-										<li><a href="/GreenProduct/dssanpham?madm=<%=dm.getMaDanhMuc()%>&page=1"> <%= dm.getTenDanhMuc() %> </a></li>
+										<li><a href="/GreenProduct/dssanpham?madm=<%=dm.getMaDanhMuc()%>&page=1"> <%=dm.getTenDanhMuc()%> </a></li>
 										<%} %>
 									</ul>	
 								</div>												
