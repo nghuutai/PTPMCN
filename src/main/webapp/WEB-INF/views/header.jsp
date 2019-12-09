@@ -1,7 +1,7 @@
 <%@page import="org.springframework.context.ApplicationContext"%>
 <%@page import="org.springframework.context.support.ClassPathXmlApplicationContext"%>
-<%@page import="com.ptpmcn.dao.DMSanPhamDAO"%>
-<%@page import="com.ptpmcn.entity.DMSanPham"%>
+<%@page import="com.ptpmcn.dao.DanhMucDAO"%>
+<%@page import="com.ptpmcn.entity.DanhMuc"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -39,12 +39,12 @@
 										<li><a href="/GreenProduct/dssanpham?madm=0&page=1">Tất cả sản phẩm</a></li>
 										<%
 											ApplicationContext context = new ClassPathXmlApplicationContext("IoC.xml");
-											DMSanPhamDAO dmsp = (DMSanPhamDAO) context.getBean("dbdmsanpham");
-											List<DMSanPham> listDMSanPham = dmsp.getListDMSanPham(); 
-											for (DMSanPham dm : listDMSanPham){
+											DanhMucDAO dmsp = (DanhMucDAO) context.getBean("dbdanhmuc");
+											List<DanhMuc> listDMSanPham = dmsp.getListDanhMuc(); 
+											for (DanhMuc dm : listDMSanPham){
 										%>
 										
-										<li><a href="/GreenProduct/dssanpham?madm=<%=dm.getMaDM()%>&page=1"> <%= dm.getTenDM() %> </a></li>
+										<li><a href="/GreenProduct/dssanpham?madm=<%=dm.getMaDanhMuc()%>&page=1"> <%= dm.getTenDanhMuc() %> </a></li>
 										<%} %>
 									</ul>	
 								</div>												

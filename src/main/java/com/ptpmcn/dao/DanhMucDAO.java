@@ -21,7 +21,7 @@ public class DanhMucDAO {
 	}
 
 	public List<DanhMuc> getListDanhMuc() {
-		String sql = "select * from danhmucsp";
+		String sql = "select * from danhmucsp order by TenDanhMuc";
 		List<DanhMuc> listDanhMuc = jdbcTemplate.query(sql, new RowMapper<DanhMuc>() {
 
 			public DanhMuc mapRow(ResultSet rs, int rowNum) throws SQLException {
