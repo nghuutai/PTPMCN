@@ -15,6 +15,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ptpmcn.dao.TaiKhoanDAO;
 import com.ptpmcn.entity.TaiKhoan;
@@ -33,6 +34,7 @@ public class AdminController {
 		return "LoginAdmin";
 	}
 	 
+	
 	@PostMapping("/admin")
 	public void dangNhap(@RequestParam String tenDangNhap, String matKhau,
 			HttpServletResponse response, ModelMap modelMap) throws ServletException, IOException {
@@ -41,7 +43,7 @@ public class AdminController {
 		tk.setMatKhau(matKhau);
 		boolean test = db.kiemtraLogin(tk); // true dang nhap sai
 		if(test) {
-			modelMap.addAttribute("loginFail", 0);
+			//modelMap.addAttribute("loginFail", 0);
 			response.sendRedirect("admin");
 		}
 		else {

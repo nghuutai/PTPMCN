@@ -29,7 +29,7 @@
 			  </div>
 			 <%
 			 int i = (Integer) request.getAttribute("loginFail");
-				if( i == 0 ){
+				if( i != 1 ){
 			%>
 				<div class="alert alert-danger" role="alert">
 				  	Tên đăng nhập hoặc mật khẩu sai! Mời thử lại. 

@@ -38,7 +38,7 @@
 				  
 			  </div>
 			  <%
-				if( (Integer) request.getAttribute("result") == 0 ){
+				if( ((Integer) request.getAttribute("result")) == 0  ){
 			%>
 				<div class="alert alert-danger" role="alert">
 				  Mã Danh mục đã tồn tại!
@@ -46,7 +46,15 @@
 			<%
 				}
 			%>
-			
+			 <%
+				if( ((Integer) request.getAttribute("result")) == 2  ){
+			%>
+				<div class="alert alert-success" role="alert">
+				  Thêm mới Danh mục sản phẩm thành công.
+				</div>
+			<%
+				}
+			%>
 			</form>
 		</div>
 		 <script>
