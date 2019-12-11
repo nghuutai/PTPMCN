@@ -46,17 +46,10 @@ public class QLDanhMucController {
 		DanhMuc dm = new DanhMuc();
 		dm.setMaDanhMuc(maDanhMuc);
 		dm.setTenDanhMuc(tenDanhMuc);
-		/*String tendm="";
-		tendm = db.layTenDanhMuc(maDanhMuc);
-		if(tendm.isEmpty()) {
-			db.themDanhMuc(dm);
-		}else {
-			modelMap.addAttribute("result", 0);
-		}*/
 		boolean kq = db.kiemTraMaDanhMuc(maDanhMuc);
 		if (kq) {
 			db.themDanhMuc(dm);
-			modelMap.addAttribute("result", 1); // attribute cho alert
+			modelMap.addAttribute("result", 2); // attribute cho alert
 		}
 		else {
 			modelMap.addAttribute("result", 0);
@@ -76,14 +69,4 @@ public class QLDanhMucController {
 		return "QLDanhMuc";
 	}
 	
-	
-	/*
-	 HttpServletResponse response) 
-				throws ServletException, IOException*/
-	/*String user = (String) session.getAttribute("userLogin"); 
-	if(user.isEmpty() ) {
-		response.sendRedirect("admin");
-	}else {
-		response.sendRedirect("qldanhmuc");
-	}*/
 }
