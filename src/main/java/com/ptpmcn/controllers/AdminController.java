@@ -22,18 +22,14 @@ import com.ptpmcn.entity.TaiKhoan;
 
 @Controller
 public class AdminController {
-	private HttpSession session = null;
 	ApplicationContext context = new ClassPathXmlApplicationContext("IoC.xml");
 	TaiKhoanDAO db = (TaiKhoanDAO) context.getBean("dbtaikhoan");
 	TaiKhoan tk = new TaiKhoan();
-	
-	
+
 	@RequestMapping("/admin")
 	public String trangLoginAdmin(ModelMap modelMap) {
-		modelMap.addAttribute("loginFail", 1); // alert rỗng
 		return "LoginAdmin";
 	}
-	 
 	
 	@PostMapping("/admin")
 	public void dangNhap(@RequestParam String tenDangNhap, String matKhau,
@@ -43,11 +39,9 @@ public class AdminController {
 		tk.setMatKhau(matKhau);
 		boolean test = db.kiemtraLogin(tk); // true dang nhap sai
 		if(test) {
-			//modelMap.addAttribute("loginFail", 0);
 			response.sendRedirect("admin");
 		}
 		else {
-			session.setAttribute("userLogin", tk.getTaiKhoan());
 			response.sendRedirect("qldanhmuc");
 		}
 	}

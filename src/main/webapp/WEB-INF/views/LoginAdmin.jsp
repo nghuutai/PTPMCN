@@ -27,16 +27,6 @@
 				  	<button type="submit" class="btn btn-primary mb-2" 
 				  	style=" width: 50%; margin-left: 25%;">Đăng nhập</button>
 			  </div>
-			 <%
-			 int i = (Integer) request.getAttribute("loginFail");
-				if( i != 1 ){
-			%>
-				<div class="alert alert-danger" role="alert">
-				  	Tên đăng nhập hoặc mật khẩu sai! Mời thử lại. 
-				</div>
-			<%
-				}
-			%>
 			</form>
 		 <script>
 			 	function Check(){
