@@ -19,19 +19,18 @@
 <body>
 	<div class="header_top">
 		<div class="container">
-			<div class="col-xs-11 header-bottom-left">
+			<div class="col-xs-12 header-bottom-left">
 				<div class="col-xs-4 logo">
 				<h1><a href="."><span>Green</span>Product</a></h1>
-				</div>
-				<div class="col-xs-7 menu">
-		            <ul class="megamenu skyblue">
-					<li><a class="color4" href="admin">QL DANH MỤC</a></li>				
-					<li><a class="color5" href="404.html">QL SẢN PHẨM</a></li>
-					<li><a class="color2" href="404.html">QL ĐƠN HÀNG</a></li>
-			    	<li><a class="color6" href="contact.html">THỐNG KÊ</a></li>
-			  		</ul> 
-				</div>
-				</div>
+			</div>
+			<div class="col-xs-7 menu">
+	            <ul class="megamenu skyblue">
+				<li><a class="color4" href="qldanhmuc">QL DANH MỤC</a></li>				
+				<li><a class="color5" href="404.html">QL SẢN PHẨM</a></li>
+				<li><a class="color2" href="404.html">QL ĐƠN HÀNG</a></li>
+		    	<li><a class="color6" href="contact.html">THỐNG KÊ</a></li>
+		  		</ul> 
+			</div>
 	       <div class="clearfix"></div>
 		</div>
 	</div>

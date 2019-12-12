@@ -27,7 +27,8 @@
 			    <label for="exampleFormControlInput1">Tên danh mục</label>
 			    <input type="text" class="form-control"name="tenDanhMuc" value="<%= sp.getTenDanhMuc() %>" id="exampleFormControlInput1" placeholder="Nhập tên danh mục">
 			  </div>
-			  <div class="button2">
+			  <div class="button2"    style="width: 50%;
+    margin-left: 25%;" >
 			  		<a href="/GreenProduct/qldanhmuc"><button type="button" class="btn btn-primary mb-2" >Quay lại</button></a>
 			  		<button type="submit" class="btn btn-primary mb-2" >Lưu</button>
 			  </div>

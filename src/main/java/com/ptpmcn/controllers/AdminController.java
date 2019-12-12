@@ -28,21 +28,23 @@ public class AdminController {
 
 	@RequestMapping("/admin")
 	public String trangLoginAdmin(ModelMap modelMap) {
+		modelMap.addAttribute("LoginFail", true);
 		return "LoginAdmin";
 	}
 	
 	@PostMapping("/admin")
-	public void dangNhap(@RequestParam String tenDangNhap, String matKhau,
-			HttpServletResponse response, ModelMap modelMap) throws ServletException, IOException {
+	public String dangNhap(@RequestParam String tenDangNhap, String matKhau,
+			 ModelMap modelMap) throws ServletException, IOException {
 		
 		tk.setTaiKhoan(tenDangNhap);
 		tk.setMatKhau(matKhau);
 		boolean test = db.kiemtraLogin(tk); // true dang nhap sai
 		if(test) {
-			response.sendRedirect("admin");
+			modelMap.addAttribute("LoginFail", false);
+			return "LoginAdmin";
 		}
 		else {
-			response.sendRedirect("qldanhmuc");
+			return "IndexAdmin";
 		}
 	}
 }
