@@ -28,6 +28,11 @@
 				  	style=" width: 50%; margin-left: 25%;">Đăng nhập</button>
 			  </div>
 			</form>
+			<c:if test="${LoginFail==false}">
+				<div class="alert alert-danger" role="alert">
+				 Tên tài khoản hoặc mật khẩu không chính xác!!!
+				</div>
+			</c:if>
 		 <script>
 			 	function Check(){
 			 		let user = document.forms["formdangnhap"]["tenDangNhap"].value;
