@@ -28,23 +28,23 @@ public class GioHangServiceTest {
 	}
 	@Test
 	public void testGiamGioHang() {
-		HashMap<Integer, GioHang> arr1 = GioHangService.giamGioHang(arr, sp, sp.getMaSanPham(), 1, 5);
-		assertTrue((arr1.get(1)).getSoLuong()==1);
-		assertTrue((arr1.get(2)).getSoLuong()==3);
+		arr = GioHangService.giamGioHang(arr, sp, sp.getMaSanPham(), 1, 5);
+		assertTrue((arr.get(1)).getSoLuong()==1);
+		assertTrue((arr.get(2)).getSoLuong()==3);
 	}
 
 	@Test
 	public void testXoaGioHang() {
-		HashMap<Integer, GioHang> arr1 = GioHangService.xoaGioHang(arr, sp.getMaSanPham());	
-		assertTrue(GioHangService.tongSoLuongGioHang(arr1)==3);
+		arr = GioHangService.xoaGioHang(arr, sp.getMaSanPham());	
+		assertTrue(GioHangService.tongSoLuongGioHang(arr)==3);
 	}
 
 
 	@Test
 	public void testTangGioHang() {
-		HashMap<Integer, GioHang> arr1 = GioHangService.tangGioHang(arr, sp, sp.getMaSanPham(), 1, 5);
-		assertTrue((arr1.get(1)).getSoLuong()==3);
-		assertTrue((arr1.get(2)).getSoLuong()==3);
+		arr = GioHangService.tangGioHang(arr, sp, sp.getMaSanPham(), 1, 5);
+		assertTrue((arr.get(1)).getSoLuong()==3);
+		assertTrue((arr.get(2)).getSoLuong()==3);
 	}
 
 	@Test
