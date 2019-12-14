@@ -87,7 +87,7 @@
 				      <td><%= dm.getTenDanhMuc() %></td>
 				      <td>
 				      	<div class="btn-group">
-				      		<a href="suadanhmuc/<%= dm.getMaDanhMuc() %>" ><button type="button" class="btn2 btn-warning">Edit</button></a>
+				      		<a href="/GreenProduct/suadanhmuc/<%= dm.getMaDanhMuc() %>" ><button type="button" class="btn2 btn-warning">Edit</button></a>
 				      	</div>
 				      	<div class="btn-group">
 				      		<a href="/GreenProduct/qldanhmuc/<%= dm.getMaDanhMuc() %>"><button type="button" class="btn2 btn-danger">Delete</button></a>
