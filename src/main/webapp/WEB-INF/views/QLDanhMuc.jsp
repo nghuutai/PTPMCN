@@ -72,7 +72,7 @@
 			<table class="table table-striped">
 			  <thead>
 			    <tr>
-			      <th scope="col" style="width: 20%">ID </th>
+			      <th scope="col" style="width: 20%">Mã danh mục </th>
 			      <th scope="col" style="width: 55%">Tên Danh Mục</th>
 			      <th scope="col" style="width: 25%">Action</th>
 			    </tr>
@@ -87,10 +87,10 @@
 				      <td><%= dm.getTenDanhMuc() %></td>
 				      <td>
 				      	<div class="btn-group">
-				      		<a href="/GreenProduct/suadanhmuc/<%= dm.getMaDanhMuc() %>" ><button type="button" class="btn2 btn-warning">Edit</button></a>
+				      		<a href="/GreenProduct/suadanhmuc/<%= dm.getMaDanhMuc() %>" ><button type="button" class="btn2 btn-warning">Sửa</button></a>
 				      	</div>
 				      	<div class="btn-group">
-				      		<a href="/GreenProduct/qldanhmuc/<%= dm.getMaDanhMuc() %>"><button type="button" class="btn2 btn-danger">Delete</button></a>
+				      		<a href="/GreenProduct/qldanhmuc/<%= dm.getMaDanhMuc() %>"><button type="button" class="btn2 btn-danger">Xóa</button></a>
 				      	</div>
 				      </td>
 				    </tr>
